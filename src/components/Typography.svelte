@@ -1,0 +1,1 @@
+<p>This is typography component with Svelte</p>
