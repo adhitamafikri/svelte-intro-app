@@ -15,9 +15,12 @@ module.exports = {
   },
 
   devServer: {
+    index: path.resolve(__dirname, 'public.index.html'),
     contentBase: path.join(__dirname, 'dist'),
     compress: false,
-    port: 4008
+    port: 4008,
+    writeToDisk: true,
+    open: 'chrome'
   },
 
   resolve: {
