@@ -6,21 +6,21 @@ const mode = process.env.NODE_ENV || 'development'
 const prod = mode === 'production'
 
 module.exports = {
-  entry: {
-    bundle: ['./src/app.js']
-  },
+  entry: './src/main.js',
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'public/dist'),
+    publicPath: path.resolve(__dirname, 'public/dist'),
     filename: 'app.bundle.js',
   },
 
   devServer: {
-    index: path.resolve(__dirname, 'public.index.html'),
-    contentBase: path.join(__dirname, 'dist'),
+    index: path.resolve(__dirname, 'public/index.html'),
+    contentBase: path.join(__dirname, 'public'),
     compress: false,
     port: 4008,
     writeToDisk: true,
-    open: 'chrome'
+    open: 'Google Chrome',
+    historyApiFallback: true,
   },
 
   resolve: {
@@ -66,7 +66,7 @@ module.exports = {
     new CleanWebpackPlugin(),
     new MiniCSSExtractPlugin({
       filename: '[name].css'
-    })
+    }),
   ],
   devtool: prod ? false: 'source-map'
 }
